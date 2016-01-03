@@ -7,6 +7,7 @@ variables:
   title: "Ulyaoth Chat"
   email: "webmaster@ulyaoth.net"
   cookiename: ulyaoth
+  sendmail: "/usr/lib/sendmail"
 ranks:
   member_rank: 0
   paid_member_rank: 1
