@@ -29,7 +29,7 @@ require "$root/inc/variables.inc";
 
 #$loginerror = "";
 
-#require "$root/inc/login.inc";
+#member_login()
 
 #exit;
 
@@ -61,7 +61,7 @@ print "Content-type: text/html\n\n";
 
 $loginerror = "";
 
-require "$root/inc/login.inc";
+member_login()
 
 exit;
 
@@ -78,7 +78,7 @@ print "Content-type: text/html\n\n";
 
 $loginerror = "";
 
-require "$root/inc/login.inc";
+member_login()
 
 exit;
 
@@ -118,7 +118,7 @@ $loginerror = " *** Id session switching is not allowed once you are logged in. 
 
 print "Content-type: text/html\n\n";
 
-require "$root/inc/login.inc";
+member_login()
 
 exit;
 
@@ -166,7 +166,7 @@ $loginerror = " *** IP switching is NOT allowed ($oips1. -> $ENV{'REMOTE_ADDR'})
 
 print "Content-type: text/html\n\n";
 
-require "$root/inc/login.inc";
+member_login()
 
 exit;
 
@@ -186,7 +186,7 @@ $loginerror = " *** IP switching is NOT allowed ($oips1.$oips2 -> $ENV{'REMOTE_A
 
 print "Content-type: text/html\n\n";
 
-require "$root/inc/login.inc";
+member_login()
 
 exit;
 
@@ -206,7 +206,7 @@ $loginerror = " *** IP switching is NOT allowed ($oips1.$oips2.$oips3 -> $ENV{'R
 
 print "Content-type: text/html\n\n";
 
-require "$root/inc/login.inc";
+member_login()
 
 exit;
 
@@ -226,7 +226,7 @@ $loginerror = " *** IP switching is NOT allowed ($oips1.$oips2.$oips3.$oips4 -> 
 
 print "Content-type: text/html\n\n";
 
-require "$root/inc/login.inc";
+member_login()
 
 exit;
 
@@ -721,4 +721,37 @@ foreach $key_value (@key_value_pairs) {
                 $DATA{$key} = $value;
         }
 }
+}
+
+sub member_login {
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<title>Ulyaoth Chat</title>
+<link rel="stylesheet" type="text/css" href="lol.css" />
+</head>
+<body>
+<h3>Password currently not required for non registered users.</h3>
+<div class="container">
+	<section id="content">
+		<form action="chat.cgi" method="post">
+			<h1>Member Login</h1>
+			<div>
+				<input type="text" placeholder="Username" required="" id="username" name="n" />
+			</div>
+			<div>
+				<input type="password" placeholder="Password" required="" id="password" name="pass" />
+			</div>
+			<div>
+				<input type="submit" value="Log in" />
+				<a href="#">Lost your password?</a>
+				<a href="#">Register</a>
+			</div>
+		</form>	
+	</section>
+</div>
+</body>
+</html>
+
+return true;
 }
