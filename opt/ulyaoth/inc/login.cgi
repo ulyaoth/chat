@@ -1,16 +1,12 @@
 #!/usr/bin/perl
 
-use DB_File;
-
 require "$root/cgi/idle.cgi";
 
 if($DATA{'n'} eq "" or length($DATA{'n'}) > 14 or $DATA{'n'} =~ /\./){
 
-print "Content-type: text/html\n\n";
-
 $loginerror = "";
 
-require "$root/inc/login.inc";
+member_login();
 
 exit;
 
@@ -19,13 +15,11 @@ exit;
 
 if($DATA{'id'}){
 
-print "Content-type: text/html\n\n";
-
 $loginerror = "*** IP relogin ($ENV{'REMOTE_ADDR'}). Please wait...";
 
 $r = 1;
 
-require "$root/inc/login.inc";
+member_login();
 
 exit;
 }
@@ -49,11 +43,9 @@ opendir(RD, "$root/ops/ops/");
                
 if($DATA{'n'} =~ /$entry/i && $DATA{'n'} ne $entry && length($DATA{'n'}) == length($entry) && !-e "$root/ops/ops/$DATA{'n'}.db"){
 
-print "Content-type: text/html\n\n";
-
 $loginerror = "*** Sorry the nickname ! <b>$DATA{'n'}</b> or the password is not correct, please retype your nick and password and try to login again!";
 
-require "$root/inc/login.inc";
+member_login();
 
 exit;
 
@@ -67,11 +59,9 @@ exit;
 
 if(-e "$root/online/users/$DATA{'n'}.db" && !-e "$root/ops/ops/$DATA{'n'}.db"){
 
-print "Content-type: text/html\n\n";
-
 $loginerror = "*** Sorry, nickname <b>$DATA{'n'}</b> is already in use, please choose another.";
 
-require "$root/inc/login.inc";
+member_login();
 
 exit;
 

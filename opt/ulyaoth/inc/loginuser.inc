@@ -1,7 +1,5 @@
 #!/usr/bin/perl
 
-use DB_File;
-
 foreach $bb(@rooms){
 
 if($bb =~ /$DATA{'room'}/i && length($DATA{'room'}) == length($bb)){
@@ -117,9 +115,7 @@ $loginerror = " $KICK{'kick'}<center><font color=red>Time left:$onlinet.</font><
 
 dbmclose(%KICK);
 
-print "Content-type: text/html\n\n";
-
-require "$root/inc/login.inc";
+member_login();
 
 exit;
 
@@ -203,7 +199,7 @@ if($DATA{'n'} =~ /$word/i){
 
  $loginerror = " *** Invalid nickname.";
 
-require "$root/inc/login.inc";
+member_login();
 
 exit;
 
@@ -216,7 +212,7 @@ if($DATA{'n'} =~ /ulyaoth/i){
 
 $loginerror = " *** Invalid nickname.";
 
-require "$root/inc/login.inc";
+member_login();
 
 exit;
 
@@ -291,7 +287,7 @@ $loginerror = " $BANNED{'ban'}<center><font color=red>Time left:$onlinet.</font>
 dbmclose(%BANNED);
 
 
-require "$root/inc/login.inc";
+member_login();
 
 exit;
 
@@ -366,8 +362,7 @@ $loginerror = " $BANNED{'ban'}<center><font color=red>Time left:$onlinet.</font>
 
 dbmclose(%BANNED);
 
-
-require "$root/inc/login.inc";
+member_login();
 
 exit;
 
@@ -389,9 +384,7 @@ if($ENV{'HTTP_VIA'} && -e "$root/online/noproxy/proxy.txt"){
 
 $loginerror = " *** Error , all proxies are currently blocked. Ip address <b>$ENV{'REMOTE_ADDR'}</b> or host <b>$host_name</b> is listed as a proxy server.<p> <center><b>PLEASE TURN OFF YOUR PROXY AND TRY TO LOGIN AGAIN!</b>.";
 
-
-
-require "$root/inc/login.inc";
+member_login();
 
 exit;
 
