@@ -3,6 +3,12 @@
 use CGI;
 use Fcntl;
 use DB_File;
+use YAML::Tiny;
+
+my $yaml = YAML::Tiny->read( '/etc/ulyaoth/config.yaml' );
+
+my $cookiename = $yaml->[0]->{variables}->{cookiename};
+
 
 $root = '/opt/ulyaoth';
 
@@ -501,7 +507,7 @@ exit;
 
 if($fr eq "yes"){
 
-dbmopen(%USER,"$root/online/users/$DATA{'n'}",0777);
+dbmopen(%USER,"$root/online/users/$DATA{'n'}.db",0777);
 
 undef $USER{'fr'};
 
