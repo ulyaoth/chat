@@ -29,7 +29,7 @@ require "$root/inc/variables.inc";
 
 #$loginerror = "";
 
-#require "$root/inc/login.inc";
+#member_login()
 
 #exit;
 
@@ -57,11 +57,9 @@ $arabic = 1;
 
 if ($DATA{'n'} =~ /[^a-zA-Z0-9_\Á\È\Ê\Ë\Ì\Í\Î\Ï\ä\Ñ\Ó\Ô\Õ\Ö\Ø\ø\Ù\Ú\Û\Ü\Ý\Þ\ß\á\ã\ä\æ\í\À\Â\Ã\Ä\Å\Æ\Ç\Ð\Ö\Ò\à\å\æ\ç\è\é\ê\ë\ì\í\î\ï]/i) {
 
-print "Content-type: text/html\n\n";
-
 $loginerror = "";
 
-require "$root/inc/login.inc";
+member_login();
 
 exit;
 
@@ -74,11 +72,9 @@ exit;
 
 if(!$DATA{'n'} or length($DATA{'n'}) > 15 or $DATA{'n'} =~ /\./ or $DATA{'n'} =~ /db/i){
 
-print "Content-type: text/html\n\n";
-
 $loginerror = "";
 
-require "$root/inc/login.inc";
+member_login();
 
 exit;
 
@@ -116,9 +112,7 @@ if($USER{'user_agent'} ne $ENV{'HTTP_USER_AGENT'}){
 
 $loginerror = " *** Id session switching is not allowed once you are logged in. Please relogin again.";
 
-print "Content-type: text/html\n\n";
-
-require "$root/inc/login.inc";
+member_login();
 
 exit;
 
@@ -164,9 +158,7 @@ dbmclose(%USER);
 
 $loginerror = " *** IP switching is NOT allowed ($oips1. -> $ENV{'REMOTE_ADDR'})";
 
-print "Content-type: text/html\n\n";
-
-require "$root/inc/login.inc";
+member_login();
 
 exit;
 
@@ -184,9 +176,7 @@ dbmclose(%USER);
 
 $loginerror = " *** IP switching is NOT allowed ($oips1.$oips2 -> $ENV{'REMOTE_ADDR'})";
 
-print "Content-type: text/html\n\n";
-
-require "$root/inc/login.inc";
+member_login();
 
 exit;
 
@@ -204,9 +194,7 @@ dbmclose(%USER);
 
 $loginerror = " *** IP switching is NOT allowed ($oips1.$oips2.$oips3 -> $ENV{'REMOTE_ADDR'})";
 
-print "Content-type: text/html\n\n";
-
-require "$root/inc/login.inc";
+member_login();
 
 exit;
 
@@ -224,9 +212,7 @@ dbmclose(%USER);
 
 $loginerror = " *** IP switching is NOT allowed ($oips1.$oips2.$oips3.$oips4 -> $ENV{'REMOTE_ADDR'})";
 
-print "Content-type: text/html\n\n";
-
-require "$root/inc/login.inc";
+member_login();
 
 exit;
 
@@ -721,4 +707,41 @@ foreach $key_value (@key_value_pairs) {
                 $DATA{$key} = $value;
         }
 }
+}
+
+sub member_login {
+print "Content-type: text/html\n\n";
+
+print <<EOF;
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<title>Ulyaoth Chat</title>
+<link rel="stylesheet" type="text/css" href="css/login.css" />
+</head>
+<body>
+<h3>Password currently not required for non registered users.</h3>
+<div class="container">
+	<section id="content">
+		<form action="chat.cgi" method="post">
+			<h1>Member Login</h1>
+			<div>
+				<input type="text" placeholder="Username" required="" id="username" name="n" />
+			</div>
+			<div>
+				<input type="password" placeholder="Password" required="" id="password" name="pass" />
+			</div>
+			<div>
+				<input type="submit" value="Log in" />
+				<a href="#">Lost your password?</a>
+				<a href="#">Register</a>
+			</div>
+		</form>	
+	</section>
+</div>
+</body>
+</html>
+EOF
+
+return true;
 }
