@@ -7,11 +7,11 @@ use DB_File;
 use YAML::Tiny;
 
 # Open the configuration file and put everything in $yaml.
-my $yaml = YAML::Tiny->read( '/etc/ulyaoth/config.yaml' );
+my $configuration = YAML::Tiny->read( '/etc/ulyaoth/config.yaml' );
 
 # All required variables from the config file.
-my $cookiename = $yaml->[0]->{variables}->{cookiename};
-
+my $cookiename = $configuration->[0]->{variables}->{cookiename};
+my $title = $configuration->[0]->{variables}->{title};
 
 $root = '/opt/ulyaoth';
 
@@ -729,7 +729,11 @@ print <<EOF;
 <!DOCTYPE html>
 <head>
 <meta charset="utf-8">
-<title>Ulyaoth Chat</title>
+EOF
+
+print "<title>$title</title>\n";
+
+print <<EOF;
 <link rel="stylesheet" type="text/css" href="css/login.css" />
 </head>
 <body>
@@ -737,7 +741,7 @@ print <<EOF;
 <div class="container">
 	<section id="content">
 		<form action="chat.cgi" method="post">
-			<h1>Member Login</h1>
+			<h1>Chat Login</h1>
 			<div>
 				<input type="text" placeholder="Username" required="" id="username" name="n" />
 			</div>
