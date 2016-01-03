@@ -1,12 +1,15 @@
 #!/usr/bin/perl
 
+# Specify the additional Perl modules in order to run the chat.
 use CGI;
 use Fcntl;
 use DB_File;
 use YAML::Tiny;
 
+# Open the configuration file and put everything in $yaml.
 my $yaml = YAML::Tiny->read( '/etc/ulyaoth/config.yaml' );
 
+# All required variables from the config file.
 my $cookiename = $yaml->[0]->{variables}->{cookiename};
 
 

@@ -159,7 +159,7 @@ while ($x <= 9) {
 if ($x eq $i) {
 print $two[$x] . " | ";
 } else {
-print "<a href=\"bin.cgi?n=$DATA{'n'}&room=$room&id=$DATA{'id'}&msg=\/im+$x\">$two[$x]</a> | ";
+print "<a href=\"chat.cgi?n=$DATA{'n'}&room=$room&id=$DATA{'id'}&msg=\/im+$x\">$two[$x]</a> | ";
 
 }
 $x++;
