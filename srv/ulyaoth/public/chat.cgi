@@ -733,6 +733,12 @@ EOF
 
 print "<title>$title</title>\n";
 
+if($r == 1){
+
+print "<META HTTP-EQUIV=\"Refresh\" CONTENT=\"0;URL=$location?n=$DATA{'n'}&r=$DATA{'room'}\">";
+
+}
+
 print <<EOF;
 <link rel="stylesheet" type="text/css" href="css/login.css" />
 </head>
@@ -749,7 +755,7 @@ print <<EOF;
 				<input type="password" placeholder="Password" required="" id="password" name="pass" />
 			</div>
 			<div>
-				<input type="submit" value="Log in" />
+				<input type="submit" value="Enter Chat" />
 				<a href="#">Lost your password?</a>
 				<a href="#">Register</a>
 			</div>
