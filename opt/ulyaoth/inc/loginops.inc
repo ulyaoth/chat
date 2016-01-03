@@ -50,6 +50,7 @@ if ($pa ne $password){
 
 $loginerror = "*** Sorry the nickname <b>$DATA{'n'}</b> or the password is not correct, please retype your nick and password and try to login again!";
 
+content_type();
 member_login();
 
 exit;
@@ -70,6 +71,7 @@ $loginerror = " $KICK{'kick'}<center><font color=red>Time left:$time_kick_left.<
 
 dbmclose(%KICK);
 
+content_type();
 member_login();
 
 exit;
@@ -93,6 +95,7 @@ $loginerror = " $BANNED{'ban'}<center><font color=red>Time left:$timeleft.</font
 
 dbmclose(%BANNED);
 
+content_type();
 member_login();
 
 exit;
@@ -111,6 +114,7 @@ $loginerror = " $BANNED{'out'}<center><font color=red>Please contact $title for 
 
 dbmclose(%BANNED);
 
+content_type();
 member_login();
 
 exit;
@@ -143,6 +147,7 @@ if($ssh > $en){
 
 $loginerror = " *** Ops account <b>$DATA{'n'}</b> expired. Account started on <b>$stt</b> ending <b>$xday\/$xmonth\/$xyear</b>. Current date <b>$day\/$emonth\/$year</b>. Please click <a href=\"\/renewal.cgi\">here</a> to renew.";
 
+content_type();
 member_login();
 
 exit;
