@@ -710,6 +710,8 @@ foreach $key_value (@key_value_pairs) {
 }
 
 sub member_login {
+print "Content-type: text/html\n\n";
+
 print <<EOF;
 <!DOCTYPE html>
 <head>
