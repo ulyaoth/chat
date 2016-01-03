@@ -83,7 +83,7 @@ $timet = $bantime - $f;
 if($timet < 1){
 
 
-unlink ("$root/online/banned/$ban.db");
+unlink ("$root/online/banned/$ban");
 
 
 } 
