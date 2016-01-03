@@ -40,7 +40,7 @@ VirtualHost {
   WebsiteRoot = /srv/ulyaoth/public
   AccessLogfile = /var/log/hiawatha/ulyaoth-access.log
   ErrorLogfile = /var/log/hiawatha/ulyaoth-error.log
-  StartFile = bin.cgi
+  StartFile = chat.cgi
   ExecuteCGI = yes
   RequireTLS = yes,31104000
   RandomHeader = 512
