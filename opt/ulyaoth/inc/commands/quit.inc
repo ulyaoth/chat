@@ -47,7 +47,7 @@ close(RO);
 
 
 
-print "Content-type: text/html\n\n";
+content_type();
 
 require "$root/inc/print_header.inc";
 
@@ -62,7 +62,7 @@ member_login();
 $kill_user = $DATA{'n'};
 
 
-require "$root/inc/kill_user.inc";
+kill_user();
 
 undef $kill_user;
 

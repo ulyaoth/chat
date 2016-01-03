@@ -1,7 +1,5 @@
 #!/usr/bin/perl
 
-use DB_File;
-
 if ($command eq '/account2' && $level < 1){
 
 $errors = " Error, command $command not recognized, please use /help for a list of commands.";
@@ -57,7 +55,7 @@ dbmclose(%PASS);
 
 $kill_user = $DATA{'n'};
 
-require "$root/inc/kill_user.inc";
+kill_user();
 
 undef $kill_user;
 
