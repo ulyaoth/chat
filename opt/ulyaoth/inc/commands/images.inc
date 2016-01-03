@@ -42,7 +42,7 @@ document.forms[0].msg.value='m '+n+' ';
 
 <BODY onload="document.forms[0].msg.focus();">
 
-<FORM METHOD="POST" NAME="msg" ACTION="bin.cgi#b">
+<FORM METHOD="POST" NAME="msg" ACTION="chat.cgi#b">
 END
 
 }
@@ -158,7 +158,7 @@ while ($x <= 9) {
 if ($x eq $i) {
 print $two[$x] . " | ";
 } else {
-print "<a href=\"bin.cgi?n=$DATA{'n'}&room=$room&id=$DATA{'id'}&msg=\/images+$x\">$two[$x]</a> | ";
+print "<a href=\"chat.cgi?n=$DATA{'n'}&room=$room&id=$DATA{'id'}&msg=\/images+$x\">$two[$x]</a> | ";
 
 }
 $x++;
