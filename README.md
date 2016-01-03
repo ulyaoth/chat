@@ -50,3 +50,7 @@ VirtualHost {<br>
 hiawatha.conf:<br>
 enable: CGIhandler = /usr/bin/perl:cgi<br>
 <br>
+Administrator login:<br>
+Username: admin<br>
+Password: admin<br>
+<br>
