@@ -116,7 +116,7 @@ $loginerror = " $KICK{'kick'}<center><font color=red>Time left:$onlinet.</font><
 dbmclose(%KICK);
 
 content_type();
-member_login();
+chat_login();
 
 exit;
 
@@ -201,7 +201,7 @@ if($DATA{'n'} =~ /$word/i){
  $loginerror = " *** Invalid nickname.";
 
 content_type();
-member_login();
+chat_login();
 
 exit;
 
@@ -215,7 +215,7 @@ if($DATA{'n'} =~ /ulyaoth/i){
 $loginerror = " *** Invalid nickname.";
 
 content_type();
-member_login();
+chat_login();
 
 exit;
 
@@ -290,7 +290,7 @@ $loginerror = " $BANNED{'ban'}<center><font color=red>Time left:$onlinet.</font>
 dbmclose(%BANNED);
 
 content_type();
-member_login();
+chat_login();
 
 exit;
 
@@ -366,7 +366,7 @@ $loginerror = " $BANNED{'ban'}<center><font color=red>Time left:$onlinet.</font>
 dbmclose(%BANNED);
 
 content_type();
-member_login();
+chat_login();
 
 exit;
 
@@ -389,7 +389,7 @@ if($ENV{'HTTP_VIA'} && -e "$root/online/noproxy/proxy.txt"){
 $loginerror = " *** Error , all proxies are currently blocked. Ip address <b>$ENV{'REMOTE_ADDR'}</b> or host <b>$host_name</b> is listed as a proxy server.<p> <center><b>PLEASE TURN OFF YOUR PROXY AND TRY TO LOGIN AGAIN!</b>.";
 
 content_type();
-member_login();
+chat_login();
 
 exit;
 
@@ -413,7 +413,7 @@ $c =~ s/.txt//ig;
 
 if(-e "$root/online/users/$c.db"){
 
-open(L,"$root/wait/$c.txt");
+open(L,"$root/wait/$c");
 
 flock(L,2);
 
@@ -425,7 +425,7 @@ chop($f);
 
 if($f eq $DATA{'n'}){
 
-open(P,">>$root/online/pm/$c.txt");
+open(P,">>$root/online/pm/$c");
 
 flock(P,2);
 

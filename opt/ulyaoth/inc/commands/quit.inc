@@ -56,7 +56,7 @@ require "$root/inc/print_room.inc";
 print "<hr>\n\n";
 
 
-member_login();
+chat_login();
 
 
 $kill_user = $DATA{'n'};

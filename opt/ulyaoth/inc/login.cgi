@@ -7,7 +7,7 @@ if($DATA{'n'} eq "" or length($DATA{'n'}) > 14 or $DATA{'n'} =~ /\./){
 $loginerror = "";
 
 content_type();
-member_login();
+chat_login();
 
 exit;
 
@@ -21,7 +21,7 @@ $loginerror = "*** IP relogin ($ENV{'REMOTE_ADDR'}). Please wait...";
 $r = 1;
 
 content_type();
-member_login();
+chat_login();
 
 exit;
 }
@@ -48,7 +48,7 @@ if($DATA{'n'} =~ /$entry/i && $DATA{'n'} ne $entry && length($DATA{'n'}) == leng
 $loginerror = "*** Sorry the nickname ! <b>$DATA{'n'}</b> or the password is not correct, please retype your nick and password and try to login again!";
 
 content_type();
-member_login();
+chat_login();
 
 exit;
 
@@ -65,7 +65,7 @@ if(-e "$root/online/users/$DATA{'n'}.db" && !-e "$root/ops/ops/$DATA{'n'}.db"){
 $loginerror = "*** Sorry, nickname <b>$DATA{'n'}</b> is already in use, please choose another.";
 
 content_type();
-member_login();
+chat_login();
 
 exit;
 

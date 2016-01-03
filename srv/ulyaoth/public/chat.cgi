@@ -30,7 +30,7 @@ require "$root/inc/variables.inc";
 #$loginerror = "";
 
 #content_type();
-#member_login()
+#chat_login();
 
 #exit;
 
@@ -61,7 +61,7 @@ if ($DATA{'n'} =~ /[^a-zA-Z0-9_\Á\È\Ê\Ë\Ì\Í\Î\Ï\ä\Ñ\Ó\Ô\Õ\Ö\Ø\ø\Ù\Ú\Û\Ü\Ý\Þ\ß\á\
 $loginerror = "";
 
 content_type();
-member_login();
+chat_login();
 
 exit;
 
@@ -77,7 +77,7 @@ if(!$DATA{'n'} or length($DATA{'n'}) > 15 or $DATA{'n'} =~ /\./ or $DATA{'n'} =~
 $loginerror = "";
 
 content_type();
-member_login();
+chat_login();
 
 exit;
 
@@ -116,7 +116,7 @@ if($USER{'user_agent'} ne $ENV{'HTTP_USER_AGENT'}){
 $loginerror = " *** Id session switching is not allowed once you are logged in. Please relogin again.";
 
 content_type();
-member_login();
+chat_login();
 
 exit;
 
@@ -163,7 +163,7 @@ dbmclose(%USER);
 $loginerror = " *** IP switching is NOT allowed ($oips1. -> $ENV{'REMOTE_ADDR'})";
 
 content_type();
-member_login();
+chat_login();
 
 exit;
 
@@ -182,7 +182,7 @@ dbmclose(%USER);
 $loginerror = " *** IP switching is NOT allowed ($oips1.$oips2 -> $ENV{'REMOTE_ADDR'})";
 
 content_type();
-member_login();
+chat_login();
 
 exit;
 
@@ -201,7 +201,7 @@ dbmclose(%USER);
 $loginerror = " *** IP switching is NOT allowed ($oips1.$oips2.$oips3 -> $ENV{'REMOTE_ADDR'})";
 
 content_type();
-member_login();
+chat_login();
 
 exit;
 
@@ -220,7 +220,7 @@ dbmclose(%USER);
 $loginerror = " *** IP switching is NOT allowed ($oips1.$oips2.$oips3.$oips4 -> $ENV{'REMOTE_ADDR'})";
 
 content_type();
-member_login();
+chat_login();
 
 exit;
 
@@ -723,7 +723,7 @@ print "Content-type: text/html\n\n";
 }
 
 # This is the login page subroutine.
-sub member_login {
+sub chat_login {
 # Print the actual login form.
 print <<EOF;
 <!DOCTYPE html>
