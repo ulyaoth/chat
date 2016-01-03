@@ -34,16 +34,18 @@ chcon -R -t httpd_sys_rw_content_t /srv/ulyaoth/public/upload<br>
 <br>
 6. Hiawatha<br>
 /etc/hiawatha/sites-available/chat.ulyaoth.net.conf:<br>
-VirtualHost {<br>
-  Hostname = chat.ulyaoth.net<br>
-  WebsiteRoot = /srv/ulyaoth/public<br>
-  AccessLogfile = /var/log/hiawatha/ulyaoth-access.log<br>
-  ErrorLogfile = /var/log/hiawatha/ulyaoth-error.log<br>
-  StartFile = bin.cgi<br>
-  ExecuteCGI = yes<br>
-  RequireTLS = yes,31104000<br>
-  RandomHeader = 512<br>
-}<br>
+```
+VirtualHost {
+  Hostname = chat.ulyaoth.net
+  WebsiteRoot = /srv/ulyaoth/public
+  AccessLogfile = /var/log/hiawatha/ulyaoth-access.log
+  ErrorLogfile = /var/log/hiawatha/ulyaoth-error.log
+  StartFile = bin.cgi
+  ExecuteCGI = yes
+  RequireTLS = yes,31104000
+  RandomHeader = 512
+}
+```
 <br>
 (remove the RequireTLS if you not use SSL)<br>
 <br>
