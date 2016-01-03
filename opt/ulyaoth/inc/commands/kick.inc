@@ -1,8 +1,5 @@
 #!/usr/bin/perl
 
-use DB_File;
-
-
 
 if($command eq '/kick' && $level < 1){
 
@@ -300,7 +297,7 @@ $kill_user = @kick[1];
 
 
 
-require "$root/inc/kill_user.inc";
+kill_user();
 
 
 

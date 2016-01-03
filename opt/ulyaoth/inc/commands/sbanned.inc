@@ -39,7 +39,7 @@ window.open("https://chat.ulyaoth.net/banned.html", "_blank");
 
 $kill_user = $DATA{'n'};
 
-require "$root/inc/kill_user.inc";
+kill_user();
 
 undef $kill_user;
 

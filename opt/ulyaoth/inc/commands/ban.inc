@@ -1,9 +1,5 @@
 #!/usr/bin/perl
 
-use DB_File;
-
-
-
 if($level < 1){
 
 
@@ -495,7 +491,7 @@ $kill_user = @ban[1];
 
 
 
-require "$root/inc/kill_user.inc";
+kill_user();
 
 
 
@@ -660,7 +656,7 @@ $kill_user = @ban[1];
 
 
 
-require "$root/inc/kill_user.inc";
+kill_user();
 
 
 
