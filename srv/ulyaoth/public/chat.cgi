@@ -709,9 +709,11 @@ foreach $key_value (@key_value_pairs) {
 }
 }
 
+# This is the login page subroutine.
 sub member_login {
 print "Content-type: text/html\n\n";
 
+# Print the actual login form.
 print <<EOF;
 <!DOCTYPE html>
 <head>
@@ -742,6 +744,13 @@ print <<EOF;
 </body>
 </html>
 EOF
+
+# If there is an error then print it below the login form.
+if($loginerror ne '' && $logmsg eq ""){
+  print "<h3>$loginerror<h3>\n";
+}else{
+  print "<h3>$logmsg<h3>\n";
+}
 
 return true;
 }
