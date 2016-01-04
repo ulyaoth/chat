@@ -2,7 +2,7 @@
 1. I am looking to integrate Mojolicious with this chat but keep all the same functionalities.<br>
 2. I also look to move to use a proper database such as MySQL, and if possible more choose.<br>
 3. Memcache certain things perhaps chat rooms?.<br>
-4. css for the login, register lostpassword pages etc..<br>
+4. css for the login, register lostpassword pages etc.<br>
 <br>
 It is important all functions the chat currently has would stay the same or are improved.<br>
 <br>
