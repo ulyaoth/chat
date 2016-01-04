@@ -97,7 +97,7 @@ __DATA__
 <div class="container">
 	<section id="content">
 		<form action="chat.pl" method="post">
-			<h1>Register</h1>
+			<h1>Lost Password</h1>
 			<div>
 				<input type="email" placeholder="Email" required="" id="email" name="email" />
 			</div>
