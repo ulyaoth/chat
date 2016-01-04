@@ -75,7 +75,16 @@ __DATA__
 				<input type="password" placeholder="Password" required="" id="password" name="pass" />
 			</div>
 			<div>
+				<input type="text" placeholder="First Name" required="" id="firstname" name="firstname" />
+			</div>
+			<div>
+				<input type="text" placeholder="Last Name" required="" id="lastname" name="lastname" />
+			</div>
+			<div>
 				<input type="email" placeholder="Email" required="" id="email" name="email" />
+			</div>
+			<div>
+				<input type="date" placeholder="birthdate" required="" id="birthdate" name="birthdate" />
 			</div>
 			<div>
 				<input type="text" placeholder="Secret Question" required="" id="secretquestion" name="secretquestion" />
@@ -98,6 +107,12 @@ __DATA__
 	<section id="content">
 		<form action="chat.pl" method="post">
 			<h1>Lost Password</h1>
+			<div>
+				<input type="text" placeholder="First Name" required="" id="firstname" name="firstname" />
+			</div>
+			<div>
+				<input type="text" placeholder="Last Name" required="" id="lastname" name="lastname" />
+			</div>
 			<div>
 				<input type="email" placeholder="Email" required="" id="email" name="email" />
 			</div>
