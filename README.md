@@ -19,12 +19,12 @@ Please be aware this installation is a temporarily solution till the legacy is g
 https://www.ulyaoth.net/resources/ulyaoth-repository.6/<br>
 <br>
 2. Install the following packages: (change dnf to yum if required)<br>
-dnf install ulyaoth-nginx ulyaoth-hiawatha mariadb mariadb-server perl uuid-perl perl-CPAN perl-CGI perl-DB_File perl-YAML-Tiny perl-Compress-Raw-Zlib perl-IO-Zlib perl-Digest-MD5 wget zip<br>
+dnf install ulyaoth-nginx ulyaoth-hiawatha mariadb mariadb-server perl uuid-perl perl-Pod-Spell perl-Test-Spelling perl-YAML perl-CPAN perl-CGI perl-DB_File perl-YAML-Tiny perl-Compress-Raw-Zlib perl-IO-Zlib perl-Digest-MD5 wget zip<br>
 <br>
 3. Open a Perl CPAN shell and install Monolicious<br>
  perl -MCPAN -e shell<br>
  install Mojolicious<br>
- install Digest::SHA3<br>
+ install Mojolicious::Plugin::Bcrypt<br> 
 <br>
 4. Git clone the chat repository<br>
 https://github.com/ulyaoth/chat.git<br>
