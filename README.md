@@ -19,7 +19,7 @@ Please be aware this installation is a temporarily solution till the legacy is g
 https://www.ulyaoth.net/resources/ulyaoth-repository.6/<br>
 <br>
 2. Install the following packages: (change dnf to yum if required)<br>
-dnf install ulyaoth-nginx ulyaoth-hiawatha perl perl-CPAN perl-CGI perl-DB_File perl-YAML-Tiny perl-Compress-Raw-Zlib perl-IO-Zlib perl-Digest-MD5 wget zip<br>
+dnf install ulyaoth-nginx ulyaoth-hiawatha mariadb mariadb-server perl perl-CPAN perl-CGI perl-DB_File perl-YAML-Tiny perl-Compress-Raw-Zlib perl-IO-Zlib perl-Digest-MD5 wget zip<br>
 <br>
 3. Open a Perl CPAN shell and install Monolicious<br>
  perl -MCPAN -e shell<br>
@@ -137,6 +137,17 @@ location / {
 
 }
 ```
+<br>
+9. Start & Enable service<br>
+Start:<br>
+systemctl start nginx.service<br>
+systemctl start hiawatha.service<br>
+systemctl start ulyaoth-chat.service<br>
+<br>
+Enable:<br>
+systemctl enable nginx.service<br>
+systemctl enable hiawatha.service<br>
+systemctl enable ulyaoth-chat.service<br>
 <br>
 Administrator login:<br>
 Username: admin<br>
