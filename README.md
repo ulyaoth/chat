@@ -5,6 +5,9 @@
 <br>
 It is important all functions the chat currently has would stay the same or are improved.<br>
 <br>
+<br>
+The new file that should be worked on is "chat.pl", the "chat.cgi" is still there in order to use the chat fully but it should be eventually removed.
+
 # How to install.<br>
 <br>
 RHEL Based:<br>
@@ -28,6 +31,7 @@ chown -R hiawatha:ulyaoth /etc/ulyaoth<br>
 chown -R hiawatha:ulyaoth /opt/ulyaoth<br>
 chown -R hiawatha:ulyaoth /srv/ulyaoth<br>
 <br>
+chmod 0755 all ".pl" files.<br>
 chmod 0755 all ".cgi" files.<br>
 chmod 0755 all ".db" files.<br>
 chmod 0644 all other files.<br>
@@ -47,7 +51,7 @@ VirtualHost {
   WebsiteRoot = /srv/ulyaoth/public
   AccessLogfile = /var/log/hiawatha/ulyaoth-access.log
   ErrorLogfile = /var/log/hiawatha/ulyaoth-error.log
-  StartFile = chat.cgi
+  StartFile = chat.pl
   ExecuteCGI = yes
   RequireTLS = yes,31104000
   RandomHeader = 512
