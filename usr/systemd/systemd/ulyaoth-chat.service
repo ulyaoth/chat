@@ -1,0 +1,13 @@
+[Unit]
+Description=Ulyaoth Chat
+Documentation=https://github.com/ulyaoth/chat
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+ExecStart=/srv/ulyaoth/chat.pl daemon -m production -l http://127.0.0.1:3000
+ExecReload=/bin/kill -0 $MAINPID
+KillSignal=SIGINT
+
+[Install]
+WantedBy=multi-user.target
