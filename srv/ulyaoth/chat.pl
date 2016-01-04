@@ -12,23 +12,29 @@ my $mytitle = $configuration->[0]->{variables}->{title};
 
 get '/' => sub {
   my $c = shift;
-  $c->render(template => 'login', css => 'login.css', title => $mytitle);
+  $c->render(template => 'login', title => $mytitle);
 };
 
 get '/login' => sub {
   my $c = shift;
-  $c->render(template => 'login', css => 'login.css', title => $mytitle);
+  $c->render(template => 'login', title => "$mytitle - Login");
 };
 
 get '/register' => sub {
   my $c = shift;
-  $c->render(template => 'login', css => 'login.css', title => $mytitle);
+  $c->render(template => 'register', title => "$mytitle - Register");
 };
 
 get '/lostpassword' => sub {
   my $c = shift;
-  $c->render(template => 'login', css => 'login.css', title => $mytitle);
+  $c->render(template => 'lostpassword', title => "$mytitle - Lost Password");
 };
+
+get '/contact' => sub {
+  my $c = shift;
+  $c->render(template => 'contact', title => "$mytitle - Contact");
+};
+
 
 app->start;
 __DATA__
@@ -56,12 +62,65 @@ __DATA__
 	</section>
 </div>
 
+@@ register.html.ep
+% layout 'default';
+<div class="container">
+	<section id="content">
+		<form action="chat.pl" method="post">
+			<h1>Register</h1>
+			<div>
+				<input type="text" placeholder="Username" required="" id="username" name="n" />
+			</div>
+			<div>
+				<input type="password" placeholder="Password" required="" id="password" name="pass" />
+			</div>
+			<div>
+				<input type="email" placeholder="Email" required="" id="email" name="email" />
+			</div>
+			<div>
+				<input type="text" placeholder="Secret Question" required="" id="secretquestion" name="secretquestion" />
+			</div>
+			<div>
+				<input type="text" placeholder="Secret Answer" required="" id="secretanswer" name="secretanswer" />
+			</div>					
+			<div>
+				<input type="submit" value="Register" />
+				<a href="<%= url_for 'lostpassword' %>">Lost your password?</a>
+				<a href="<%= url_for 'login' %>">Already registered?</a>
+			</div>
+		</form>	
+	</section>
+</div>
+
+@@ lostpassword.html.ep
+% layout 'default';
+<div class="container">
+	<section id="content">
+		<form action="chat.pl" method="post">
+			<h1>Register</h1>
+			<div>
+				<input type="email" placeholder="Email" required="" id="email" name="email" />
+			</div>
+			<div>
+				<input type="text" placeholder="Secret Question" required="" id="secretquestion" name="secretquestion" />
+			</div>
+			<div>
+				<input type="text" placeholder="Secret Answer" required="" id="secretanswer" name="secretanswer" />
+			</div>					
+			<div>
+				<input type="submit" value="Request Now" />
+				<a href="<%= url_for 'contact' %>">Forgot Secret Q&A?</a>
+				<a href="<%= url_for 'login' %>">Back to Login.</a>
+			</div>
+		</form>	
+	</section>
+</div>
+
 @@ layouts/default.html.ep
 <!DOCTYPE html>
 <html>
   <head>
     <title><%= title %></title>
-    <link rel="stylesheet" type="text/css" href="css/<%= $css %>" />
   </head>
   <body>
     <%= content %>
