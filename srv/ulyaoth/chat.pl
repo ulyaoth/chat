@@ -121,7 +121,10 @@ __DATA__
 			</div>
 			<div>
 				<input type="text" placeholder="Secret Answer" required="" id="secretanswer" name="secretanswer" />
-			</div>					
+			</div>
+			<div>
+				<input type="date" placeholder="birthdate" required="" id="birthdate" name="birthdate" />
+			</div>				
 			<div>
 				<input type="submit" value="Request Now" />
 				<a href="<%= url_for 'contact' %>">Forgot Secret Q&A?</a>
